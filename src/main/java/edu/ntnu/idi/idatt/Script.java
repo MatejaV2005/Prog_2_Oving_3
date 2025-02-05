@@ -1,12 +1,10 @@
 package edu.ntnu.idi.idatt;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Script {
   List<TextCommand> textCommands;
 
-  Script(List<TextCommand> textCommands) {
+  public Script(List<TextCommand> textCommands) {
     this.textCommands = textCommands;
   }
 
