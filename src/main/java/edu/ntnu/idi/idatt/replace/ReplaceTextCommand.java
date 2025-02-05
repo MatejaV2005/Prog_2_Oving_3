@@ -5,9 +5,9 @@ public class ReplaceTextCommand implements TextCommand {
   protected String target;
   protected String replacement;
 
-  ReplaceTextCommand(String target, String replacement) {
-    this.target = target;
-    this.replacement = replacement;
+  public ReplaceTextCommand(String target, String replacement) {
+    setTarget(target);
+    setReplacement(replacement);
   }
 
   // Get-methods
@@ -19,10 +19,34 @@ public class ReplaceTextCommand implements TextCommand {
     return replacement;
   }
 
+  //set-methods
+  private void setTarget(String target) {
+    if (target == null || target.isBlank()) {
+      throw new IllegalArgumentException("Chosen target cannot be null or blank");
+    }
+    this.target = target;
+  }
+
+  private void setReplacement(String replacement) {
+    if (replacement == null || target.isBlank()) {
+      throw new IllegalArgumentException("Chosen replacement cannot be null or blank");
+    }
+    this.replacement = replacement;
+  }
+
 
   // Implementation of execute method to replace target word
   @Override
   public String execute(String text) {
+    if(text == null || text.isBlank()) {
+      throw new IllegalArgumentException("Text cannot be null");
+    }
+
+    if(!text.contains(getTarget())){
+      throw new IllegalArgumentException("Target not found in text");
+    }
+
+
     return text.replace(target, replacement);
   }
 
