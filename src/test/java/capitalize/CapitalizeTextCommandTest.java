@@ -1,20 +1,15 @@
-package Capitalize;
+package capitalize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 import edu.ntnu.idi.idatt.capitalize.CapitalizeTextCommand;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CapitalizeTextCommandTest {
 
-    private CapitalizeTextCommand command;
+    CapitalizeTextCommand command = new CapitalizeTextCommand();
 
-    @BeforeEach
-    void setUp() {
-        command = new CapitalizeTextCommand();
-    }
 
     @Test
     void testCapitalizeNormalText() {
